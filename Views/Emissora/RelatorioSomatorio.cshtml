@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmissorasApp.Models.Audiencia>
+
+@{
+    ViewBag.Title = "Relatório de Emissoras Cadastradas";
+}
+
+<script>
+    function imprimirPagina() {
+        window.print();
+    }
+</script>
+
+<h2>Relatório de Audiências</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Emissora
+        </th>
+        <th>
+            Pontos de Audiência
+        </th>
+        <th>
+            Data e Hora
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.emissoraAudiencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pontosAudiencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataHoraAudiencia)
+        </td>
+    </tr>
+    }
+</table>
+
+<button onclick="imprimirPagina()">Imprimir Relatório</button> | @Html.ActionLink("Voltar para o Início", "Index")

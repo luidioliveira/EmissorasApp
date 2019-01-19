@@ -1,0 +1,30 @@
+﻿@model EmissorasApp.Models.Emissora
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+<h2>Apagar Emissora da Base de Dados</h2>
+<h6>Para confirmar a ação, clique em "Apagar"</h6>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Apagar" class="btn btn-default" /> |
+        @Html.ActionLink("Voltar para Lista de Emissoras", "Index")
+    </div>
+    }
+</div>

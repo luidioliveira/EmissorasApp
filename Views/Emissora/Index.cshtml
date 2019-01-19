@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EmissorasApp.Models.Emissora>
+
+@{
+    ViewBag.Title = "Início";
+}
+
+<h2>Bem-vindo(a), visitante!</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Nova Emissora", "Create") |  @Html.ActionLink("Cadastrar Audiência", "Create", "Audiencia")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Emissoras Cadastradas
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Detalhar", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
+
+________________________________________________________________________________________________________________________
+
+<h2>Área de Relatórios</h2>
+@Html.ActionLink("• Gerar Relatório de Audiência das Emissoras", "RelatorioSomatorio")
+

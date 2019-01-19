@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmissorasApp.Models.Audiencia>
+
+@{
+    ViewBag.Title = "Audiências Cadastradas";
+}
+
+<h2>Audiências</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Nova Audiência", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Pontos de Audiência
+        </th>
+        <th>
+            Data e Hora
+        </th>
+        <th>
+            Emissora
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pontosAudiencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataHoraAudiencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emissoraAudiencia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Detalhe", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

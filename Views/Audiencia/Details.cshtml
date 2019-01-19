@@ -1,0 +1,41 @@
+﻿@model EmissorasApp.Models.Audiencia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhe de Informações</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pontosAudiencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pontosAudiencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataHoraAudiencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataHoraAudiencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emissoraAudiencia)
+        </dt>
+
+        <dd>
+            @ViewBag.emissora
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar Informações", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar para Lista de Audiências", "Index")
+</p>

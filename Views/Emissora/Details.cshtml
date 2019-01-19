@@ -1,0 +1,26 @@
+﻿@model EmissorasApp.Models.Emissora
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Detalhe de Informações</h2>
+
+<div>
+    <h4>Emissora</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar Informações", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar para Lista de Emissoras", "Index")
+</p>

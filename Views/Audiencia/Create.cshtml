@@ -1,0 +1,56 @@
+﻿@model EmissorasApp.Models.Audiencia
+
+@{
+    ViewBag.Title = "Cadastrar Audiência";
+}
+
+<h2>Cadastrar Audiência</h2>
+<h5><font color="red">Atenção!</font> Não são aceitos cadastros de audiência em mesma data e horário para mesma emissora.</h5>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="control-label col-md-2">Pontos de Audiência</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pontosAudiencia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pontosAudiencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Data e Hora</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dataHoraAudiencia, new { htmlAttributes = new { @class = "form-control", @type = "datetime-local" } })
+                @Html.ValidationMessageFor(model => model.dataHoraAudiencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Emissora</div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.emissoraAudiencia, new SelectList(ViewBag.emissoras, "ID", "Nome"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emissoraAudiencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar para Lista de Emissoras", "Index", "Emissora") | @Html.ActionLink("Verificar Audiências", "Index", "Audiencia")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
